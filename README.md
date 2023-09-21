@@ -1,23 +1,25 @@
-# Flux et Couches de l'application.
-![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/c1193040-c178-4574-8be1-cabaebb3b8a3)
+# Flux et Couches de l'application
+![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/84d2adfa-5fdd-4672-aad8-aa311b20627d)
 
 
 
 # Schema BDD
-![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/1efff5f4-b814-49ec-9e85-5c787c861f7a)
+
+![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/1527650a-f8ff-457c-ac2e-11c24e88a10e)
 
 
 # Maquettes
 F1 : Liste des restaurants
-![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/7df29314-c317-4eb8-9860-24d2053067b8)
+![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/b86ca0d4-1af4-4043-9b15-75bbac3cdb0f)
 
 
 F3 : Liste des plats d'un restaurant
-![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/aba0ca9e-a298-4740-b817-26fa0da46ab8)
+
+![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/80d91c23-b753-4002-8fa7-d10789edb004)
 
 
 F4 & F5 : Detaille d'un plat & barre de recherche pour ajouter un plat
-![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/24589b58-733f-4020-891a-50409b449462)
+![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/1091174e-851e-4c35-aeeb-17c2b105179e)
 
 
 # Liste des Fonctionnalites
@@ -32,7 +34,7 @@ F4 & F5 : Detaille d'un plat & barre de recherche pour ajouter un plat
 |   |   |   |   |   |
 
 # Specifications des Fonctionnalites
-## F2 Ajouter un nouveau restaurant
+## F2 : Ajouter un nouveau restaurant
 Apres avoir cliquer sur le bouton de creation de restaurant, l'utilisateur rempli un formulaire avec les champs suivant :
 + Nom du restaurant {Obligatoire}
 + Coordonees du restaurant (adress,ville,pays) {Obligatoire}
@@ -42,13 +44,15 @@ Apres avoir cliquer sur le bouton de creation de restaurant, l'utilisateur rempl
 + Image {optionnel}
 
 Si tous les champs sont valides et respectent les contraintes définies dans la BDD <details><summary>Schema Bdd :</summary>
-![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/1efff5f4-b814-49ec-9e85-5c787c861f7a)
+
+![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/1527650a-f8ff-457c-ac2e-11c24e88a10e)
+
  </details> 
  ...alors les données sont enregistrées dans la BDD. Si la BDD renvoie une réponse réussie, une confirmation s’affiche pour l’utilisateur qui est redirigé vers la page du nouveau restaurant.
 
 
 
-## F4 Afficher une vue detaillee d'un plat
+## F4 : Afficher une vue detaillee d'un plat
 Sur la page de la liste des plats d'un restaurant *[F3]* , l'utilisateur clique sur l'un des plats, la fenetre du plat s'agrandit et toutes les informations suivantes sont disponibles :
 + Nom
 + Image
@@ -58,8 +62,7 @@ Sur la page de la liste des plats d'un restaurant *[F3]* , l'utilisateur clique 
 les fenetres des plats doivent rester alignees entre-elles, comme sur la maquette
  <details><summary>Maquette:</summary>
    
-![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/24589b58-733f-4020-891a-50409b449462)
-
+![image](https://github.com/gabriel2combe/exercice_menu_restaurant/assets/36897202/1091174e-851e-4c35-aeeb-17c2b105179e)
 
  </details> 
 
