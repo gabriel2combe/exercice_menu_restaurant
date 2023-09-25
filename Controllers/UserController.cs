@@ -1,70 +1,57 @@
+// Import necessary namespaces
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using WebApi;
+using WebApi.Data;
+using WebApi.Controllers;
 
+// Define the namespace for the controller
 namespace WebApi.Controllers
 {
+    // Define the route and declare this class as a controller
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
+        // Declare a private variable for the database context
+        private readonly RestaurantDbContext _context;
+
+        // Declare a list of users
         public readonly List<User> _users = new List<User>
         {
-            new User
-            {
-                Id = 1,
-                Firstname = "John",
-                Lastname = "Doe",
-                Email = "johndoe@example.com",
-                Address = "123 Main St",
-                Phone = "555-555-5555",
-                _user_restaurants = new List<Restaurant>{ },
-            },
 
-            new User
-            {
-                Id = 2,
-                Firstname = "Jane",
-                Lastname = "Doe",
-                Email = "janedoe@example.com",
-                Address = "456 Main St",
-                Phone = "555-555-5555",
-                _user_restaurants = new List<Restaurant>{ },
-            },
-            
-            new User
-            {
-                Id = 3,
-                Firstname = "Lo",
-                Lastname = "Anne",
-                Email = "anne@expl.com",
-                Address = "1456 Mall St",
-                Phone = "555-787675",
-                _user_restaurants = new List<Restaurant>{ },
-            }
         };
-        public UserController()
-        {
 
+        // Constructor for the UserController, takes a RestaurantDbContext as a parameter
+        public UserController(RestaurantDbContext context)
+        {
+            _context = context;  // Assign the incoming context to the private _context variable
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<User>> Get()
-        {
-            return _users;
-        }
-
+        // HTTP GET method to get a specific user by id
         [HttpGet("{id}")]
-        public ActionResult<User> GetById(int id)
+        public async Task<ActionResult<User>> GetUser(int id)
         {
-            var user = _users.Find(u => u.Id == id);
-            if (user == null)
+            var user = await _context.Users.FindAsync(id);  // Find the user in the database
+
+            if (user == null)  // If no user is found...
             {
-                return NotFound();
+                return NotFound();  // Return a NotFound status code
             }
-            return user;
+
+            return user;  // If a user is found, return the user
         }
 
-        // Add other HTTP methods (POST, PUT, DELETE) as needed
+
+        // HTTP GET method to get all users and their restaurants
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<User>>> Get()
+        {
+            // Fetch all users from the database asynchronously, including their associated restaurants
+            return await _context.Users.Include(u => u.Restaurants).ToListAsync();
+        }
+
+
     }
 }
